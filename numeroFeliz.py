@@ -1,13 +1,13 @@
-def numeroFeliz(n):   #definir nro de ingreso
-    def sumaCuadrados(x):  # función que calcula los nros felices
+def es_numero_feliz(n):   # nro de ingreso
+    def suma_cuadrados(x):  # función que calcula los nros felices
         return sum(int(d)**2 for d in str(x)) # operación matemática
     
     ingresado = set()
     while n != 1 and n not in ingresado:
         ingresado.add(n)
-        n = sumaCuadrados(n)
+        n = suma_cuadrados(n)
     
-    return n == 1
+    return n == 12
 
 # Solicitar al usuario que ingrese un número
 entrada = input(" por favor Ingresa un número entero positivo: ")
@@ -18,7 +18,7 @@ try:    # ciclo
     if numero <= 0:   # condición nro distinto de 0
         print("Por favor, ingresa un número entero positivo.")
     else:
-        if numeroFeliz(numero):
+        if es_numero_feliz(numero): # type: ignore
             print(f"¡El número {numero} es un número feliz!")
         else:
             print(f"El número {numero} no es un número feliz.")
